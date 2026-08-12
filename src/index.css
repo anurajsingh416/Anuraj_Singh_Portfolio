@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #F7F4EE; color: #14120F; font-family: var(--font-body); overflow-x: hidden; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes floatIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.hero-in { animation: floatIn .75s ease both; }
+.hero-in-1 { animation-delay: .05s; }
+.hero-in-2 { animation-delay: .15s; }
+.hero-in-3 { animation-delay: .25s; }
+.hero-in-4 { animation-delay: .35s; }
+
+.project-card, .edu-card, .exp-card { transform-style: preserve-3d; will-change: transform; }
+.project-card:hover .service-arrow, .service-row:hover .service-arrow { transform: translate(3px,-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .hero-in { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+}
